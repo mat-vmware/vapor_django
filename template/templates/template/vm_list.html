@@ -34,11 +34,11 @@
 <br />
 
 <div class="container">
-    <h3><span>Images</span></h3>
+    <h3><span>VMs</span></h3>
 
     <hr />
 
-    {% if templates %}
+    {% if vms %}
     <table class="table table-striped">
         <thead>
             <tr>
@@ -46,19 +46,20 @@
                 <th>Description</th>
                 <th>Status</th>
                 <th>Action</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            {% for template in templates %}
+            {% for vm in vms %}
             <tr>
-                <td>{{ template.name }}</td>
+                <td>{{ vm.name }}</td>
                 <td></td>
                 <td></td>
                 <td>
-                    <a href="{% url 'template:launch' template.name %}"><span class="glyphicon glyphicon-play" aria-hidden="true"></a>
+                    <a href="{% url 'template:launch' vm.name %}"><span class="glyphicon glyphicon-play" aria-hidden="true"></a>
                 </td>
                 <td>
-                    <form method="POST" action="{% url 'template:launch' template.name %}">
+                    <form method="POST" action="{% url 'template:launch' vm.name %}">
                         {% csrf_token %}
                         <button type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
                     </form>
@@ -68,7 +69,7 @@
         </tbody>
     </table>
     {% else %}
-    <p>No templates are available.</p>
+    <p>No vms are available.</p>
     {% endif %}
 </div>
 <!-- container -->

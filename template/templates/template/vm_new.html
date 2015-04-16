@@ -31,45 +31,8 @@
     </div>
 </div>
 
-<br />
-
-<div class="container">
-    <h3><span>Images</span></h3>
-
-    <hr />
-
-    {% if templates %}
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for template in templates %}
-            <tr>
-                <td>{{ template.name }}</td>
-                <td></td>
-                <td></td>
-                <td>
-                    <a href="{% url 'template:launch' template.name %}"><span class="glyphicon glyphicon-play" aria-hidden="true"></a>
-                </td>
-                <td>
-                    <form method="POST" action="{% url 'template:launch' template.name %}">
-                        {% csrf_token %}
-                        <button type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
-                    </form>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <p>No templates are available.</p>
-    {% endif %}
+<div id="f" class="container">
+    <h3><span>Task lauching a VM has been fired.</span></h3>
 </div>
 <!-- container -->
 

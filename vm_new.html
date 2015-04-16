@@ -1,0 +1,31 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'template/bootstrap/css/bootstrap.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'template/css/vapor.css' %}" />
+    <link rel="shortcut icon" href="{% static 'template/favicon.ico' %}" />
+</head>
+
+<body>
+
+<div id="f" class="container">
+    <h3><span>Launch a VM</span></h3>
+
+    <hr />
+
+    <form method="POST" action="{% url 'template:vm_new' %}">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="name">VM Name</label>
+            <input type="text" class="form-control" id="image" name="image" disabled />
+            <input type="text" class="form-control" id="name" name="name" placeholder="VM Name" />
+        </div>
+        <button type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span></button>
+    </form>
+</div>
+<!-- container -->
+
+</body>
+</html>
